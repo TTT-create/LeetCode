@@ -46,8 +46,9 @@ class Solution {
 
         // 遍历所有字符串
         for (String str : strs) {
-            // 对字符串中的字符进行排序，得到排序后的字符串作为键
+            // 将字符串转换为字符，方便排序
             char[] array = str.toCharArray();
+            // 对字符串中的字符进行排序，得到排序后的字符串作为键
             Arrays.sort(array);
             String key = new String(array);
 
