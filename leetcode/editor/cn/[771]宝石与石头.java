@@ -33,18 +33,24 @@
 
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int numJewelsInStones(String jewels, String stones) {
         int count = 0;
-        for (char stone : stones.toCharArray()) {
-            for (char jewel : jewels.toCharArray()) {
-                if (stone == jewel){
-                    count ++;
-                    break;
-                }
+        Set<Character> jewelsSet = new HashSet<Character>();
+        int jewelsLength = jewels.length(), stonesLength = stones.length();
+        for(int i = 0; i < jewelsLength; i++){
+            char jewel = jewels.charAt(i);
+            jewelsSet.add(jewel);
+        }
+        for(int i = 0; i < stonesLength; i++){
+            char stone = stones.charAt(i);
+            if(jewelsSet.contains(stone)){
+                count++;
             }
         }
         return count;
